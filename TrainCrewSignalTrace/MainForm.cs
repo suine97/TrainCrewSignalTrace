@@ -15,6 +15,7 @@ namespace TrainCrewSignalTrace
         private readonly CalcATS calcATS = new CalcATS();
         private string OldSignalName = "None";
         private bool IsInterval = false;
+        private bool IsUIUpdate = true;
 
         /// <summary>
         /// コンストラクタ
@@ -185,7 +186,10 @@ namespace TrainCrewSignalTrace
                     sb.AppendLine("ElapsedTime      :[0]:");
                     sb.AppendLine("");
                 }
-                textBox1.Text = sb.ToString();
+                if (IsUIUpdate)
+                {
+                    textBox1.Text = sb.ToString();
+                }
                 
                 sb2.Clear();
                 sb2.AppendLine($"ATS_Class   :{atsClass}");
@@ -193,7 +197,10 @@ namespace TrainCrewSignalTrace
                 sb2.AppendLine($"ATS_State   :{atsState}");
                 sb2.AppendLine($"OldTrackName:{OldSignalName}");
                 sb2.AppendLine($"BeaconIndex :{TrainState.CoupledSignalBeaconIndex}");
-                label2.Text = sb2.ToString();
+                if (IsUIUpdate)
+                {
+                    label2.Text = sb2.ToString();
+                }
 
                 ResumeLayout();
             }
@@ -240,6 +247,21 @@ namespace TrainCrewSignalTrace
             TrainCrewInput.Dispose();
         }
 
+        /// <summary>
+        /// CheckBox_UIUpdate_CheckedChanged
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CheckBox_UIUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            IsUIUpdate = CheckBox_UIUpdate.Checked;
+        }
+
+        /// <summary>
+        /// ATSResetButton_Clickイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ATSResetButton_Click(object sender, EventArgs e)
         {
             //非常ブレーキ復帰

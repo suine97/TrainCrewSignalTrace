@@ -33,6 +33,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.CheckBox_UIUpdate = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ATSResetButton
@@ -91,11 +92,25 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             // 
+            // CheckBox_UIUpdate
+            // 
+            this.CheckBox_UIUpdate.AutoSize = true;
+            this.CheckBox_UIUpdate.Checked = true;
+            this.CheckBox_UIUpdate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox_UIUpdate.Location = new System.Drawing.Point(367, 587);
+            this.CheckBox_UIUpdate.Name = "CheckBox_UIUpdate";
+            this.CheckBox_UIUpdate.Size = new System.Drawing.Size(72, 16);
+            this.CheckBox_UIUpdate.TabIndex = 6;
+            this.CheckBox_UIUpdate.Text = "画面更新";
+            this.CheckBox_UIUpdate.UseVisualStyleBackColor = true;
+            this.CheckBox_UIUpdate.CheckedChanged += new System.EventHandler(this.CheckBox_UIUpdate_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(536, 709);
+            this.Controls.Add(this.CheckBox_UIUpdate);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SignalComboBox);
@@ -116,6 +131,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox CheckBox_UIUpdate;
     }
 }
 
