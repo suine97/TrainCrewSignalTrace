@@ -11,9 +11,11 @@ namespace TrainCrewSignalTrace
         /// <summary> 最小結合範囲 </summary>
         private const float MINIMUM_COUPLING_RANGE = 0.35f;
         /// <summary> 最大結合範囲 </summary>
-        private const float MAXIMUM_COUPLING_RANGE = 2.00f;
+        private const float MAXIMUM_COUPLING_RANGE = 5.00f;
         /// <summary> 直前の信号機名称と進入時刻を管理する辞書 </summary>
         private static Dictionary<string, DateTime> signalTimestamps = new Dictionary<string, DateTime>();
+        /// <summary> 地上子結合範囲表示用 </summary>
+        public static float couplingRange = 0.0f;
 
         /// <summary>
         /// 地上子結合中判定
@@ -26,7 +28,7 @@ namespace TrainCrewSignalTrace
             try
             {
                 //地上子結合範囲算出
-                float couplingRange = CustomMath.Lerp(0.0f, MINIMUM_COUPLING_RANGE, 120.0f, MAXIMUM_COUPLING_RANGE, Math.Abs(speed));
+                couplingRange = CustomMath.Lerp(0.0f, MINIMUM_COUPLING_RANGE, 120.0f, MAXIMUM_COUPLING_RANGE, Math.Abs(speed));
                 //地上子結合判定
                 if ((0.0f <= Math.Abs(beaconDistance)) && (Math.Abs(beaconDistance) <= couplingRange))
                 {

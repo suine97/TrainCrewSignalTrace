@@ -197,6 +197,7 @@ namespace TrainCrewSignalTrace
                 sb2.AppendLine($"ATS_State   :{atsState}");
                 sb2.AppendLine($"OldTrackName:{OldSignalName}");
                 sb2.AppendLine($"BeaconIndex :{TrainState.CoupledSignalBeaconIndex}");
+                sb2.AppendLine($"BeaconRange :{SignalBeacons.couplingRange:F2}");
                 if (IsUIUpdate)
                 {
                     label2.Text = sb2.ToString();
